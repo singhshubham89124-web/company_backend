@@ -28,8 +28,7 @@ export function ContactForm() {
     setStatus('loading');
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'https://your-php-host.com/contact.php';
-      const response = await fetch(apiUrl, {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
