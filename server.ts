@@ -92,7 +92,6 @@ async function startServer() {
       const mailOptions = {
         from: `"ASRVTech Website" <${process.env.SMTP_USER}>`,
         to: process.env.COMPANY_EMAIL || 'singhshubham29392@gmail.com',
-创新
         subject: `New Service Request from ${name}`,
         html: `
           <h3>New Service Request</h3>
