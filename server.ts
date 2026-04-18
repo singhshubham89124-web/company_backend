@@ -136,7 +136,8 @@ async function mountServer() {
     app.use(vite.middlewares);
   } else {
     console.log('[SERVER] Production mode: Serving static assets.');
-    const distPath = path.resolve(__dirname, 'dist');
+    // When running from dist-server/server.js, the dist folder is one level up
+    const distPath = path.resolve(__dirname, '..', 'dist');
     if (fs.existsSync(distPath)) {
       app.use(express.static(distPath));
       app.get('*', (req, res) => res.sendFile(path.join(distPath, 'index.html')));
