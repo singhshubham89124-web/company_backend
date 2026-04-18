@@ -1,0 +1,52 @@
+{
+  "entities": {
+    "ServiceRequest": {
+      "title": "Service Request",
+      "description": "A request for software development services from a potential client.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the requester"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address of the requester"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone number of the requester"
+        },
+        "service": {
+          "type": "string",
+          "enum": [
+            "Mobile App Development",
+            "Web Development",
+            "School ERP Development",
+            "Business Software Systems",
+            "AI Automation",
+            "UI/UX Design"
+          ],
+          "description": "The type of service requested"
+        },
+        "message": {
+          "type": "string",
+          "description": "Additional details or message"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the request was created"
+        }
+      },
+      "required": ["name", "email", "service"]
+    }
+  },
+  "firestore": {
+    "/service_requests/{requestId}": {
+      "schema": "ServiceRequest",
+      "description": "Collection of all service requests submitted via the contact form."
+    }
+  }
+}

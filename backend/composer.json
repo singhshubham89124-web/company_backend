@@ -1,0 +1,23 @@
+{
+    "name": "asrvtech/company-backend",
+    "description": "PHP backend for contact form with Firebase and PHPMailer",
+    "require": {
+        "php": ">=8.1",
+        "phpmailer/phpmailer": "^6.9",
+        "kreait/firebase-php": "^7.12",
+        "paragonie/sodium_compat": "^1.21"
+    },
+    "config": {
+        "allow-plugins": {
+            "kreait/firebase-php": true
+        },
+        "platform": {
+            "php": "8.4.99"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}

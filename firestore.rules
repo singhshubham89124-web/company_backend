@@ -1,0 +1,17 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Service Requests: Restricted to Server/Admin
+    // Since the application logic uses a backend API (server.ts), 
+    // we block all client-side access to this collection for maximum security.
+    match /service_requests/{requestId} {
+      allow read, write: if false;
+    }
+  }
+}
